@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>🎉 Feliz Aniversário!</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.card {
+    background: rgba(0,0,0,0.25);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 350px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.confete {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: red;
+    top: -10px;
+    animation: cair 3s linear infinite;
+}
+
+@keyframes cair {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎂 Feliz Aniversário!</h1>
+    <p>Que seu dia seja cheio de alegria e surpresas 💖</p>
+    <button onclick="soltarConfete()">Clique aqui 🎉</button>
+</div>
+
+<script>
+function soltarConfete() {
+    for (let i = 0; i < 100; i++) {
+        let confete = document.createElement("div");
+        confete.classList.add("confete");
+        confete.style.left = Math.random() * window.innerWidth + "px";
+        confete.style.backgroundColor = 
+            `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confete.style.animationDuration = 
+            (Math.random() * 2 + 2) + "s";
+        document.body.appendChild(confete);
+
+        setTimeout(() => {
+            confete.remove();
+        }, 3000);
+    }
+}
+</script>
+
+</body>
+</html>
