@@ -2,8 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>Feliz Aniversário, Thayla! 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Aniversário, Thayla! 💙</title>
   <style>
     * {
       margin: 0;
@@ -14,255 +14,110 @@
     body {
       font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
       min-height: 100vh;
-      background: linear-gradient(145deg, #fff0f5 0%, #f5e1fd 50%, #e0f7fa 100%);
-      color: #4a4a6a;
-      overflow-x: hidden;
-      position: relative;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+      color: #2c3e50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 4vw 6vw;
+    .card {
+      max-width: 700px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      padding: 50px 40px;
       text-align: center;
       position: relative;
-      z-index: 2;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(100, 181, 246, 0.12) 0%, transparent 60%);
+      pointer-events: none;
     }
 
     h1 {
-      font-size: clamp(2.8rem, 10vw, 5.2rem);
-      font-weight: 800;
-      color: #ff85a2;
-      text-shadow: 0 0 20px rgba(255, 133, 162, 0.5);
-      margin: 5vh 0 1vh;
-      letter-spacing: -1px;
-      line-height: 0.95;
-      animation: heartBeat 3s infinite;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      color: #1e88e5;
+      margin-bottom: 20px;
+      font-weight: 700;
+      line-height: 1.1;
     }
 
-    h1 span {
-      color: #c084fc;
-      display: inline-block;
-      animation: float 4s ease-in-out infinite;
+    .emoji {
+      font-size: 1.4em;
+      margin: 0 8px;
     }
 
-    h2 {
-      font-size: clamp(1.5rem, 5vw, 2.4rem);
-      color: #7c3aed;
-      margin: 2vh 0 6vh;
-      font-weight: 500;
-      text-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
+    .mensagem {
+      font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+      line-height: 1.7;
+      color: #37474f;
+      margin: 40px 0;
     }
 
-    .botoes {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 5vh;
-      margin: 8vh 0;
+    .mensagem strong {
+      color: #1565c0;
     }
 
-    .btn {
-      font-size: clamp(1.2rem, 4.5vw, 1.6rem);
-      font-weight: 600;
-      padding: 18px 50px;
-      min-width: 280px;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-      color: white;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      position: relative;
-      overflow: hidden;
-      -webkit-tap-highlight-color: transparent;
+    .assinatura {
+      margin-top: 50px;
+      font-size: 1.4rem;
+      color: #546e7a;
+      font-style: italic;
     }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: 0.6s;
-    }
-
-    .btn:hover::before, .btn:active::before {
-      left: 100%;
-    }
-
-    .btn:active {
-      transform: scale(0.96);
-    }
-
-    #btnFugitivo { background: #ff9ec1; }
-    #btnConfete   { background: #c084fc; }
-    #btnSurpresa  { background: #7ed957; }
 
     .coracao {
-      position: absolute;
-      font-size: 2.5rem;
-      user-select: none;
-      pointer-events: none;
-      animation: flutuar 10s linear infinite;
-      z-index: 1;
-      opacity: 0.6;
+      display: block;
+      font-size: 3.5rem;
+      margin: 30px 0;
+      color: #e91e63;
+      animation: pulsinho 2s infinite;
     }
 
-    @keyframes flutuar {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10% { opacity: 0.7; }
-      90% { opacity: 0.7; }
-      100% { transform: translateY(-20vh) rotate(720deg); opacity: 0; }
-    }
-
-    #mensagem-surpresa {
-      display: none;
-      font-size: clamp(1.5rem, 5vw, 2.1rem);
-      color: #4a148c;
-      margin: 10vh 5vw;
-      padding: 40px 25px;
-      background: rgba(255, 255, 255, 0.75);
-      border-radius: 32px;
-      box-shadow: 0 15px 40px rgba(124, 58, 237, 0.25);
-      backdrop-filter: blur(12px);
-      border: 2px solid rgba(255, 182, 193, 0.5);
-      line-height: 1.6;
-      animation: apareceu 1.5s ease-out;
-    }
-
-    @keyframes apareceu {
-      from { opacity: 0; transform: scale(0.8) translateY(40px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    @keyframes heartBeat {
+    @keyframes pulsinho {
       0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.08); }
+      50%      { transform: scale(1.15); }
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-12px); }
-    }
-
-    @media (min-width: 700px) {
-      .botoes { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 4vw; }
+    @media (max-width: 500px) {
+      .card { padding: 40px 25px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>Feliz Aniversário, <span>Thayla</span>! 💗✨</h1>
-    <h2>Hoje é o dia mais docinho do ano porque você nasceu! 🥰</h2>
+  <div class="card">
+    <h1>Feliz Aniversário, Thayla! 🎉💙</h1>
 
-    <div class="botoes">
-      <button id="btnFugitivo" class="btn">Tenta me pegar... 😘</button>
-      <button id="btnConfete"   class="btn">Chuva de coraçõezinhos! 💞</button>
-      <button id="btnSurpresa"  class="btn">Abrir cartinha secreta ✉️</button>
+    <div class="coracao">💙</div>
+
+    <div class="mensagem">
+      Thayla,<br><br>
+
+      Mais um ano de você iluminando tudo por onde passa. <br>
+      Sério, cara… você é daquele tipo de amiga que faz a gente acreditar que as pessoas boas ainda existem em quantidade suficiente pra deixar o mundo mais leve.<br><br>
+
+      Obrigado por ser sempre real, por rir das nossas besteiras, por ouvir quando a coisa aperta e por estar lá mesmo quando a vida fica corrida. <br>
+      Você merece um ano incrível: cheio de rolês bons, de músicas novas que te façam sorrir sozinha, de gente que te valoriza de verdade e de muita paz no coração.<br><br>
+
+      Continua sendo essa pessoa foda, carinhosa e autêntica que a gente tem orgulho de chamar de amiga.<br>
+      Te desejo tudo de melhor da vida… e um pouquinho mais. Porque você merece.<br><br>
+
+      Feliz aniversário, minha parceira! 🥳
     </div>
 
-    <div id="mensagem-surpresa">
-      Minha Thayla linda,<br><br>
-
-      Sabe aquele pedacinho do mundo que fica mais quentinho, mais colorido e mais feliz só porque você existe?<br>
-      Então… é exatamente o que você faz comigo e com todo mundo que tem a sorte de te conhecer.<br><br>
-
-      Você é abraço em forma de gente, é risada que contagia, é carinho que a gente sente mesmo estando longe.<br>
-      Obrigada por ser tão você, tão leve, tão forte, tão cheia de luz.<br><br>
-
-      Que esse novo ciclo venha recheado de borboletas no estômago, músicas que te façam dançar sozinha na sala,<br>
-      pessoas que te amem do jeitinho que você é e muitos, muitos momentos de “nossa, como a vida é boa”.<br><br>
-
-      Te amo infinito + 1 🧸💕<br>
-      Feliz aniversário, meu amorzinho mais fofo do universo!
+    <div class="assinatura">
+      Com carinho, <br>
+      seu amigo de sempre 🤍
     </div>
   </div>
 
-  <script>
-    // Coraçõezinhos flutuando
-    function criarCoracao() {
-      const cor = document.createElement("div");
-      cor.className = "coracao";
-      cor.textContent = ["💗", "💖", "✨", "🩷", "💞", "🌸"][Math.floor(Math.random()*6)];
-      cor.style.left = Math.random() * 100 + "vw";
-      cor.style.fontSize = (1.2 + Math.random() * 2.5) + "rem";
-      cor.style.animationDuration = (8 + Math.random() * 12) + "s";
-      cor.style.animationDelay = Math.random() * 5 + "s";
-      document.body.appendChild(cor);
-      setTimeout(() => cor.remove(), 25000);
-    }
-
-    setInterval(criarCoracao, 600);
-
-    // Botão fugitivo mais delicado no mobile
-    const btnFug = document.getElementById("btnFugitivo");
-    let bloqueado = false;
-
-    function fugir(e) {
-      if (bloqueado) return;
-      bloqueado = true;
-
-      const rect = btnFug.getBoundingClientRect();
-      const isTouch = e.type.includes("touch");
-      const x = isTouch ? e.touches[0].clientX : e.clientX;
-      const y = isTouch ? e.touches[0].clientY : e.clientY;
-
-      const dx = x - (rect.left + rect.width/2);
-      const dy = y - (rect.top + rect.height/2);
-      const dist = Math.hypot(dx, dy);
-
-      if (dist < 100) {
-        let nx = rect.left + (Math.random() > 0.5 ? 160 : -160);
-        let ny = rect.top  + (Math.random() > 0.5 ? 160 : -160);
-
-        nx = Math.max(30, Math.min(window.innerWidth - rect.width - 30, nx));
-        ny = Math.max(30, Math.min(window.innerHeight - rect.height - 100, ny));
-
-        btnFug.style.position = "fixed";
-        btnFug.style.left = nx + "px";
-        btnFug.style.top  = ny + "px";
-      }
-
-      setTimeout(() => bloqueado = false, 500);
-    }
-
-    btnFug.addEventListener("mousemove", fugir);
-    btnFug.addEventListener("touchmove", fugir, { passive: true });
-
-    // Confetes de corações e estrelinhas
-    function soltarConfetes() {
-      for (let i = 0; i < 80; i++) {
-        const c = document.createElement("div");
-        c.style.cssText = `
-          position:fixed; z-index:10; pointer-events:none;
-          font-size:${1.2+Math.random()*2}rem;
-          left:${Math.random()*100}vw; top:-10vh;
-          animation:confete ${2.5+Math.random()*3}s linear forwards;
-        `;
-        c.textContent = ["💗","💖","🩷","✨","🌸","💞"][Math.floor(Math.random()*6)];
-        document.body.appendChild(c);
-        setTimeout(() => c.remove(), 6000);
-      }
-    }
-
-    const estilo = document.createElement("style");
-    estilo.textContent = `
-      @keyframes confete {
-        to { transform: translateY(120vh) rotate(${Math.random()*1000-500}deg); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(estilo);
-
-    document.getElementById("btnConfete").onclick = soltarConfetes;
-
-    // Mensagem fofa
-    document.getElementById("btnSurpresa").onclick = () => {
-      const msg = document.getElementById("mensagem-surpresa");
-      msg.style.display = "block";
-      msg.scrollIntoView({ behavior: "smooth", block: "center" });
-    };
-  </script>
 </body>
 </html>
